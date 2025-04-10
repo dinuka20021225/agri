@@ -95,67 +95,71 @@ class _SignupPageState extends State<SignupPage>
                 Image.asset(
                   "assets/bg.jpg",
                   fit: BoxFit.cover,
-                  height: MediaQuery.of(context).size.height * 0.9,
+                  height: MediaQuery.of(context).size.height * 0.91,
                   width: double.infinity,
                   colorBlendMode: BlendMode.clear,
                 ),
                 Positioned(
-                  top: MediaQuery.of(context).size.height * 0.03,
-                  right: MediaQuery.of(context).size.width * 0.4,
-                  child: AnimatedFadeSlide(
-                    duration: const Duration(milliseconds: 700),
-                    delay: const Duration(milliseconds: 200),
-                    offsetY: 30,
-                    child: Container(
-                      constraints: BoxConstraints(
-                          maxWidth: MediaQuery.of(context).size.width * 0.4),
-                      padding: const EdgeInsets.all(16),
-                      margin: const EdgeInsets.symmetric(
-                          vertical: 40, horizontal: 16),
-                      decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 12,
-                            offset: Offset(0, 8),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          TabBar(
-                            controller: _tabController,
-                            labelColor: Colors.white,
-                            unselectedLabelColor: Colors.white,
-                            unselectedLabelStyle: TextStyle(
-                              fontSize: 12,
-                              //fontWeight: FontWeight.bold,
+                  top: 0,
+                  bottom: 0,
+                  right: 0,
+                  left: 0,
+                  child: Center(
+                    child: AnimatedFadeSlide(
+                      duration: const Duration(milliseconds: 700),
+                      delay: const Duration(milliseconds: 200),
+                      offsetY: 30,
+                      child: Container(
+                        constraints: BoxConstraints(
+                            maxWidth: MediaQuery.of(context).size.width * 0.4),
+                        padding: const EdgeInsets.all(16),
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 40, horizontal: 16),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.5),
+                          borderRadius: BorderRadius.circular(16),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 12,
+                              offset: Offset(0, 8),
                             ),
-                            labelStyle: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            indicatorColor: Colors.white,
-                            tabs: const [
-                              Tab(text: "Buyer"),
-                              Tab(text: "Farmer"),
-                            ],
-                          ),
-                          const SizedBox(height: 20),
-                          SizedBox(
-                            height: 460,
-                            child: TabBarView(
+                          ],
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TabBar(
                               controller: _tabController,
-                              children: [
-                                _buildSignupForm("Buyer"),
-                                _buildSignupForm("Farmer"),
+                              labelColor: Colors.white,
+                              unselectedLabelColor: Colors.white,
+                              unselectedLabelStyle: TextStyle(
+                                fontSize: 12,
+                                //fontWeight: FontWeight.bold,
+                              ),
+                              labelStyle: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              indicatorColor: Colors.white,
+                              tabs: const [
+                                Tab(text: "Buyer"),
+                                Tab(text: "Farmer"),
                               ],
                             ),
-                          ),
-                        ],
+                            const SizedBox(height: 20),
+                            SizedBox(
+                              height: 460,
+                              child: TabBarView(
+                                controller: _tabController,
+                                children: [
+                                  _buildSignupForm("Buyer"),
+                                  _buildSignupForm("Farmer"),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

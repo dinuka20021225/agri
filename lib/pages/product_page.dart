@@ -1,3 +1,5 @@
+import 'package:agri/data/fruites_data.dart';
+import 'package:agri/data/rice_data.dart';
 import 'package:agri/data/vegi_data.dart';
 import 'package:agri/widget/footer_section.dart';
 import 'package:agri/widget/product_card.dart';
@@ -13,24 +15,36 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   String _selectedValue = 'Vegitables';
   final vegitables = vegiData;
+  final fruites = fruitsData;
+  final rice = riceData;
+
+  List<dynamic> getSelectedData() {
+    switch (_selectedValue) {
+      case 'Fruites':
+        return fruites;
+      case 'Rice':
+        return rice;
+      case 'Vegitables':
+      default:
+        return vegitables;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.only(
-          top: 120,
-        ),
+        padding: EdgeInsets.only(top: 120),
         child: Column(
           children: [
-            // Top fixed row (Dropdown, Search, Icons)
+            // Top row with Dropdown, Search, Icons
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -93,7 +107,9 @@ class _ProductPageState extends State<ProductPage> {
                           filled: true,
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 10),
+                            horizontal: 16,
+                            vertical: 10,
+                          ),
                         ),
                       ),
                     ),
@@ -104,8 +120,8 @@ class _ProductPageState extends State<ProductPage> {
                         IconButton(
                           style: ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all(Colors.green),
-                            shape: MaterialStateProperty.all(
+                                WidgetStateProperty.all(Colors.green),
+                            shape: WidgetStateProperty.all(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -124,8 +140,8 @@ class _ProductPageState extends State<ProductPage> {
                         IconButton(
                           style: ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all(Colors.green),
-                            shape: MaterialStateProperty.all(
+                                WidgetStateProperty.all(Colors.green),
+                            shape: WidgetStateProperty.all(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -147,30 +163,33 @@ class _ProductPageState extends State<ProductPage> {
 
             SizedBox(height: 30),
 
-            // Scrollable content including grid + footer
+            // Grid content with footer
             Expanded(
               child: CustomScrollView(
                 slivers: [
                   SliverGrid(
                     delegate: SliverChildBuilderDelegate(
                       (context, index) {
+                        final product = getSelectedData()[index];
                         return ProductCard(
-                          image: vegitables[index].image,
-                          name: vegitables[index].name,
-                          price: vegitables[index].pricePerKg,
+                          image: product.image,
+                          name: product.name,
+                          price: product.pricePerKg,
+                          description: product.description,
+                          location: product.location,
                         );
                       },
-                      childCount: vegitables.length,
+                      childCount: getSelectedData().length,
                     ),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 20,
-                      crossAxisSpacing: 20,
-                      childAspectRatio: 1.3,
+                      crossAxisCount: 4,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                      childAspectRatio: 1.2,
                     ),
                   ),
 
-                  // Footer inside scroll
+                  // Footer
                   SliverToBoxAdapter(
                     child: FooterSection(),
                   ),
