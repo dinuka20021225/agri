@@ -1,7 +1,7 @@
 import 'package:agri/widget/animated_fade_slide.dart';
+import 'package:agri/widget/contact_detailes_card.dart';
 import 'package:agri/widget/footer_section.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 class ContactPage extends StatefulWidget {
   const ContactPage({super.key});
@@ -14,7 +14,7 @@ class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey.shade100,
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
@@ -30,16 +30,12 @@ class _ContactPageState extends State<ContactPage> {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            /// Lottie animation
                             AnimatedFadeSlide(
-                              delay: const Duration(milliseconds: 500),
-                              child: Lottie.asset(
-                                "assets/contact.json",
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.7,
-                                fit: BoxFit.fill,
-                              ),
+                              delay: Duration(microseconds: 10),
+                              child: ContactDetailesCard(),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.05,
                             ),
 
                             /// Contact form
@@ -47,7 +43,7 @@ class _ContactPageState extends State<ContactPage> {
                               child: AnimatedFadeSlide(
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
+                                    color: Colors.transparent,
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   padding: const EdgeInsets.all(10),
@@ -82,44 +78,108 @@ class _ContactPageState extends State<ContactPage> {
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
-                                          children: [
+                                          children: <Widget>[
                                             Text(
-                                              "If you have any questions or feedback, feel free to contact us.",
+                                              "We’d love to hear from you! Whether you have a question, feedback, or just want to say hello, feel free to reach out. Use the form below or contact us directly through the provided details. We’ll get back to you as soon as possible. Get in touch today – we’re here to help!",
                                               style: TextStyle(
                                                   fontSize: 20,
                                                   color: Colors.black),
                                             ),
-                                            const SizedBox(height: 10),
-                                            TextField(
-                                              keyboardType:
-                                                  TextInputType.emailAddress,
-                                              cursorColor: Colors.black,
-                                              decoration: InputDecoration(
-                                                border: OutlineInputBorder(),
-                                                hintText: 'Your Email',
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(12),
-                                                  borderSide: const BorderSide(
-                                                      color: Colors.black,
-                                                      width: 2),
-                                                ),
-                                                enabledBorder:
-                                                    OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(12),
-                                                  borderSide: const BorderSide(
-                                                      color: Colors.black,
-                                                      width: 1),
-                                                ),
+                                            const SizedBox(height: 20),
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(12),
+                                              ),
+                                              child: Row(
+                                                children: [
+                                                  Expanded(
+                                                    child: TextField(
+                                                      keyboardType:
+                                                          TextInputType
+                                                              .emailAddress,
+                                                      cursorColor: Colors.black,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        filled: true,
+                                                        fillColor: Colors.white,
+                                                        border:
+                                                            OutlineInputBorder(),
+                                                        hintText: 'Your Email',
+                                                        focusedBorder:
+                                                            OutlineInputBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(12),
+                                                          borderSide:
+                                                              const BorderSide(
+                                                                  color: Colors
+                                                                      .transparent,
+                                                                  width: 2),
+                                                        ),
+                                                        enabledBorder:
+                                                            OutlineInputBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(12),
+                                                          borderSide:
+                                                              const BorderSide(
+                                                                  color: Colors
+                                                                      .transparent,
+                                                                  width: 1),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  const SizedBox(width: 20),
+                                                  Expanded(
+                                                    child: TextField(
+                                                      keyboardType:
+                                                          TextInputType.phone,
+                                                      cursorColor: Colors.black,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        filled: true,
+                                                        fillColor: Colors.white,
+                                                        border:
+                                                            OutlineInputBorder(),
+                                                        hintText:
+                                                            'Your Phone Number',
+                                                        focusedBorder:
+                                                            OutlineInputBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(12),
+                                                          borderSide:
+                                                              const BorderSide(
+                                                            color: Colors
+                                                                .transparent,
+                                                          ),
+                                                        ),
+                                                        enabledBorder:
+                                                            OutlineInputBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(12),
+                                                          borderSide:
+                                                              const BorderSide(
+                                                            color: Colors
+                                                                .transparent,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
-                                            const SizedBox(height: 10),
+                                            const SizedBox(height: 20),
                                             TextField(
                                               cursorColor: Colors.black,
                                               maxLines: 5,
                                               decoration: InputDecoration(
+                                                filled: true,
+                                                fillColor: Colors.white,
                                                 border: OutlineInputBorder(),
                                                 hintText:
                                                     'Type your message here...',
@@ -128,20 +188,20 @@ class _ContactPageState extends State<ContactPage> {
                                                   borderRadius:
                                                       BorderRadius.circular(12),
                                                   borderSide: const BorderSide(
-                                                      color: Colors.black,
-                                                      width: 2),
+                                                    color: Colors.transparent,
+                                                  ),
                                                 ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
                                                   borderRadius:
                                                       BorderRadius.circular(12),
                                                   borderSide: const BorderSide(
-                                                      color: Colors.black,
-                                                      width: 1),
+                                                    color: Colors.transparent,
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                            const SizedBox(height: 10),
+                                            const SizedBox(height: 20),
                                             ElevatedButton(
                                               style: ElevatedButton.styleFrom(
                                                 backgroundColor: Colors.green,

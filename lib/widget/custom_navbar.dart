@@ -1,6 +1,6 @@
 import 'package:agri/pages/about_page.dart';
-import 'package:agri/pages/category_page.dart';
 import 'package:agri/pages/contact_page.dart';
+import 'package:agri/pages/education_page.dart';
 import 'package:agri/pages/home_page.dart';
 import 'package:agri/pages/product_page.dart';
 import 'package:agri/pages/signup_page.dart';
@@ -19,6 +19,7 @@ class _CustomNavbarState extends State<CustomNavbar> {
   final List<Widget> _pages = [
     HomePage(),
     ProductPage(),
+    HomePage(),
     CategoryPage(),
     AboutPage(),
     ContactPage(),
@@ -73,7 +74,7 @@ class _CustomNavbarState extends State<CustomNavbar> {
                             [
                               'Home',
                               'Products',
-                              'Category',
+                              'Education',
                               'About',
                               'Contact'
                             ][i],
