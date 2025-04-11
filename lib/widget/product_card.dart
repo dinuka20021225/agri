@@ -1,4 +1,5 @@
 import 'package:agri/pages/single_product_page.dart';
+import 'package:agri/widget/animated_fade_slide.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatefulWidget {
@@ -40,128 +41,131 @@ class _ProductCardState extends State<ProductCard> {
           ),
         );
       },
-      child: Container(
-        margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.05),
-              blurRadius: 8,
-              offset: Offset(0, 4),
-            ),
-          ],
-          border: Border.all(color: Colors.grey.shade300),
-        ),
-        padding: EdgeInsets.all(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Image section
-            AspectRatio(
-              aspectRatio: 1.7,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  widget.image,
-                  fit: BoxFit.cover,
-                ),
+      child: AnimatedFadeSlide(
+        delay: Duration(microseconds: 10),
+        child: Container(
+          margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 8,
+                offset: Offset(0, 4),
               ),
-            ),
-            SizedBox(height: 12),
-            // Name
-            Text(
-              widget.name,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: Colors.grey.shade800,
-              ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-            SizedBox(height: 6),
-            // Price + Add to cart Row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Rs. ${widget.price.toStringAsFixed(2)}",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green.shade700,
+            ],
+            border: Border.all(color: Colors.grey.shade300),
+          ),
+          padding: EdgeInsets.all(12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Image section
+              AspectRatio(
+                aspectRatio: 1.7,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset(
+                    widget.image,
+                    fit: BoxFit.cover,
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+              ),
+              SizedBox(height: 12),
+              // Name
+              Text(
+                widget.name,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.grey.shade800,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              SizedBox(height: 6),
+              // Price + Add to cart Row
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Rs. ${widget.price.toStringAsFixed(2)}",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green.shade700,
+                    ),
                   ),
-                  child: Row(
-                    children: [
-                      IconButton(
-                        style: ButtonStyle(
-                          shape:
-                              WidgetStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          backgroundColor:
-                              WidgetStateProperty.all(Colors.green),
-                        ),
-                        icon: Icon(
-                          isFavorite
-                              ? Icons.favorite
-                              : Icons.favorite_border_outlined,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            isFavorite = !isFavorite;
-                          });
-
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              duration: Duration(seconds: 1),
-                              content: Text(
-                                isFavorite
-                                    ? "Added to Favorites"
-                                    : "Removed from Favorites",
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Row(
+                      children: [
+                        IconButton(
+                          style: ButtonStyle(
+                            shape:
+                                WidgetStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
                               ),
                             ),
-                          );
-                        },
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.01,
-                      ),
-                      IconButton(
-                        style: ButtonStyle(
-                          shape:
-                              WidgetStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
+                            backgroundColor:
+                                WidgetStateProperty.all(Colors.green),
                           ),
-                          backgroundColor:
-                              WidgetStateProperty.all(Colors.green),
+                          icon: Icon(
+                            isFavorite
+                                ? Icons.favorite
+                                : Icons.favorite_border_outlined,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              isFavorite = !isFavorite;
+                            });
+
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                duration: Duration(seconds: 1),
+                                content: Text(
+                                  isFavorite
+                                      ? "Added to Favorites"
+                                      : "Removed from Favorites",
+                                ),
+                              ),
+                            );
+                          },
                         ),
-                        icon: Icon(
-                          Icons.add_shopping_cart,
-                          color: Colors.white,
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.01,
                         ),
-                        onPressed: () {
-                          // Handle cart action
-                        },
-                      ),
-                    ],
+                        IconButton(
+                          style: ButtonStyle(
+                            shape:
+                                WidgetStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            backgroundColor:
+                                WidgetStateProperty.all(Colors.green),
+                          ),
+                          icon: Icon(
+                            Icons.add_shopping_cart,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {
+                            // Handle cart action
+                          },
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            )
-          ],
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

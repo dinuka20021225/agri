@@ -49,10 +49,10 @@ class _WriteReviewCardState extends State<WriteReviewCard> {
                 border: OutlineInputBorder(),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: Colors.grey),
+                  borderSide: BorderSide(color: Colors.transparent),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.green, width: 2.0),
+                  borderSide: BorderSide(color: Colors.transparent),
                 ),
                 contentPadding: EdgeInsets.all(20),
               ),
@@ -75,10 +75,10 @@ class _WriteReviewCardState extends State<WriteReviewCard> {
                       border: OutlineInputBorder(),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: BorderSide(color: Colors.transparent),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.green, width: 2.0),
+                        borderSide: BorderSide(color: Colors.transparent),
                       ),
                       contentPadding: EdgeInsets.all(20),
                     ),
@@ -97,10 +97,10 @@ class _WriteReviewCardState extends State<WriteReviewCard> {
                       border: OutlineInputBorder(),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: BorderSide(color: Colors.transparent),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.green, width: 2.0),
+                        borderSide: BorderSide(color: Colors.transparent),
                       ),
                       contentPadding: EdgeInsets.all(20),
                     ),
@@ -119,10 +119,10 @@ class _WriteReviewCardState extends State<WriteReviewCard> {
                       border: OutlineInputBorder(),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: BorderSide(color: Colors.transparent),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.green, width: 2.0),
+                        borderSide: BorderSide(color: Colors.transparent),
                       ),
                       contentPadding: EdgeInsets.all(20),
                     ),

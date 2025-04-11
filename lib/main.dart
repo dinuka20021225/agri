@@ -15,8 +15,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Modern Navigation',
       theme: ThemeData(
-        textTheme: GoogleFonts.poppinsTextTheme(),
-      ),
+          inputDecorationTheme:
+              InputDecorationTheme(hoverColor: Colors.transparent),
+          textTheme: GoogleFonts.poppinsTextTheme(),
+          textSelectionTheme: TextSelectionThemeData(
+            selectionColor: Colors.transparent,
+            selectionHandleColor: Colors.transparent,
+          )),
       home: const CustomNavbar(),
     );
   }

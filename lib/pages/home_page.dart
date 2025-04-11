@@ -433,8 +433,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       LottieBuilder.asset(
                         "assets/anim.json",
-                        width: MediaQuery.of(context).size.width * 0.4,
-                        //height: MediaQuery.of(context).size.height * 0.4,
+                        width: MediaQuery.of(context).size.width * 0.35,
                         fit: BoxFit.cover,
                         repeat: true,
                         frameRate: FrameRate.max,

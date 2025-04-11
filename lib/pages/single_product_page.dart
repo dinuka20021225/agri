@@ -101,6 +101,14 @@ class _SingleProductPageState extends State<SingleProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
+        onPressed: () {},
+        child: Icon(
+          Icons.shopping_cart,
+          color: Colors.white,
+        ),
+      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
