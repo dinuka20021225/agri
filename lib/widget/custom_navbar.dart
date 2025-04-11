@@ -17,8 +17,8 @@ class _CustomNavbarState extends State<CustomNavbar> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    ProductPage(),
     HomePage(),
+    ProductPage(),
     CategoryPage(),
     AboutPage(),
     ContactPage(),
