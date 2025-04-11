@@ -19,8 +19,7 @@ class _CustomNavbarState extends State<CustomNavbar> {
   final List<Widget> _pages = [
     HomePage(),
     ProductPage(),
-    HomePage(),
-    CategoryPage(),
+    EducationPage(),
     AboutPage(),
     ContactPage(),
   ];

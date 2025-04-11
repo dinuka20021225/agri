@@ -21,7 +21,7 @@ class _EducationPageState extends State<EducationPage> {
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                  top: 150, left: 60, right: 60, bottom: 50),
+                  top: 110, left: 60, right: 60, bottom: 50),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -51,7 +51,7 @@ class _EducationPageState extends State<EducationPage> {
                       crossAxisCount: 4,
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 20,
-                      childAspectRatio: 1, // Adjusted to avoid overflow
+                      childAspectRatio: 0.9, // Adjusted to avoid overflow
                     ),
                     itemCount: topics.length,
                     itemBuilder: (context, index) {
@@ -78,10 +78,10 @@ class _EducationPageState extends State<EducationPage> {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Expanded(
-                                flex: 7,
+                                flex: 5,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.vertical(
-                                      top: Radius.circular(16)),
+                                      top: Radius.circular(10)),
                                   child: Image.asset(
                                     topics[index].imagePath,
                                     fit: BoxFit.cover,
