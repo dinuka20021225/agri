@@ -49,7 +49,7 @@ class _CustomNavbarState extends State<CustomNavbar> {
               child: Row(
                 children: [
                   Image.asset(
-                    "assets/logo.png",
+                    "assets/logo2.png",
                     width: MediaQuery.of(context).size.width * 0.07,
                   ),
                   const Spacer(),

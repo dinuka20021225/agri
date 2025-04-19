@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                               AnimatedFadeSlide(
                                 duration: const Duration(milliseconds: 1000),
                                 child: Text(
-                                  "Welcome to Organic",
+                                  "Welcome to Farm Guid",
                                   style: TextStyle(
                                     fontSize:
                                         constraints.maxWidth < 600 ? 36 : 48,
